@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+    <head>
+        <title>SlackOut - SlackIn exposes teams to a DoS on new members.</title>
+        <style>
+            body {
+                background: black;
+                color: #ddd;
+                font: normal 18pt/30pt sans-serif;
+                padding: 0 10% 4em 12%;
+            }
+            h1 {
+                color: white;
+                margin-left: -2%;
+                text-align: center;
+            }
+            h1 img {
+                width: 80%;
+            }
+            h2 {
+                color: #999;
+                margin-left: -2%;
+            }
+            a {
+                color: yellow;
+            }
+            b {
+                color: lime;
+            }
+            dt i {
+                font-style: normal;
+                color: #999;
+            }
+            dd {
+                margin-bottom: 1em;
+            }
+        </style>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="og:url" content="https://slackout.github.io/" />
+        <meta name="og:title" content="SlackOut" />
+        <meta name="og:description" content="SlackIn exposes teams to a DoS on new members." />
+        <meta name="og:image" content="https://slackout.github.io/slackout.png" />
+    </head>
+    <body>
+
+        <h1><img src="slackout.svg" alt="SlackOut"></h1>
+
+        <h2>Summary</h2>
+
+        <p>SlackIn exposes teams to a DoS on new members.</p>
+
+
+        <h2>Background</h2>
+
+        <p>Slack is a popular chat application.</p>
+
+        <p>Slack is not optimized for public teams, but many open source
+        communities employ workarounds to use it anyway.</p>
+
+        <p>One popular workaround is <a
+            href="https://github.com/rauchg/slackin">SlackIn</a>, a small
+        application that allows anyone on the Internet to invite themselves to a
+        Slack team.</p>
+
+
+        <h2>Vulnerability</h2>
+
+        <p>To prevent abuse, Slack disables new invites if less than 50% of all
+        previous invites are accepted.</p>
+
+        <p>With SlackIn as of <a
+            href="https://github.com/rauchg/slackin/commits/3ff77b9d6fc72508941fd4bd5a1e49eb4f2a650c">3ff77b9d</a>,
+        it is trivial to <b>flood a Slack team with garbage invites</b> that
+        will never be accepted, effectively preventing new members from joining
+        the team.</p>
+
+        <p>Revoking invites <a
+            href="https://get.slack.help/hc/en-us/articles/201330256-Invite-new-members-to-your-team#invitation-limits">does
+        not help</a>:</p>
+
+        <blockquote>Please do not revoke invitations in an attempt to lift the
+            limit. Invitation limits are not affected by revoked invitations. They
+        are based solely on the acceptance rate of invitations that have already
+        been sent.</blockquote>
+
+
+        <h2>Mitigation</h2>
+
+        <p>There is <a href="https://github.com/avatsaev/slackin">a fork</a> (1
+        star) that adds reCAPTCHA. <b>Use the fork</b> to avoid SlackOut.</p>
+
+        <p>There is an <a href="https://github.com/rauchg/slackin/pull/234">open
+            pull request</a> against the main repo (~4,700 stars).</p>
+
+        <p>Slack provides an undocumented &ldquo;shared invite&rdquo; feature
+        whereby a team can <a href="https://slack.com/help/contact">contact
+        support</a> to generate <a
+        href="https://my.slack.com/admin/shared_invites">a link</a> to a page where
+        anyone can join the team. Links expire after 30 days or 1,000 invites. <b>Use
+        shared invites</b> to avoid SlackOut.</p>
+
+
+        <h2>Recovery</h2>
+
+        <p>To recover from SlackOut, <b>use shared invites</b> until the team's
+        invite acceptance rate is back above 50%.</p>
+
+
+        <h2>Timeline</h2>
+
+        <dl>
+
+            <dt>2015-01-26</dt>
+            <dd>First commit on rauchg/slackin.</dd>
+
+            <dt>2016-09-07 <i>&#x279F; 20 months later</i></dt>
+            <dd>Fork and PR add reCAPTCHA.</dd>
+
+            <dt>2017-05-25 <i>&#x279F; 9 months</i></dt>
+            <dd>Issue communicated in private email to rauchg.</dd>
+
+            <dt>2017-05-25 <i>&#x279F; 2 minutes</i></dt>
+            <dd>rauchg responds, &ldquo;I agree with you. There's a PR open to add
+            Google captcha. Would you like to help land it?&rdquo;</dd>
+
+            <dt>2017-05-26 <i>&#x279F; 1 day</i></dt>
+            <dd>Slack support provides shared invite workaround.</dd>
+
+            <dt>2017-05-26</dt>
+            <dd>rauchg notified of this webpage.</dd>
+
+            <dt>2017-05-?? <i>&#x279F; n days</i></dt>
+            <dd>PR merged.</dd>
+
+            <dt>2017-05-?? <i>&#x279F; 7 days (max)</i></dt>
+            <dd>Page published.</dd>
+
+        </dl>
+
+    </body>
+</html>
