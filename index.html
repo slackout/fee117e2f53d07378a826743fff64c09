@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>SlackOut - SlackIn exposes teams to a DoS on new members.</title>
+        <title>SlackOut - SlackIn exposes Slack teams to a DoS on new members.</title>
         <style>
             body {
                 background: black;
@@ -27,8 +27,7 @@
             b {
                 color: lime;
             }
-            dt i {
-                font-style: normal;
+            dt {
                 color: #999;
             }
             dd {
@@ -38,7 +37,7 @@
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="og:url" content="https://slackout.github.io/" />
         <meta name="og:title" content="SlackOut" />
-        <meta name="og:description" content="SlackIn exposes teams to a DoS on new members." />
+        <meta name="og:description" content="SlackIn exposes Slack teams to a DoS on new members." />
         <meta name="og:image" content="https://slackout.github.io/slackout.png" />
     </head>
     <body>
@@ -47,7 +46,7 @@
 
         <h2>Summary</h2>
 
-        <p>SlackIn exposes teams to a DoS on new members.</p>
+        <p>SlackIn exposes Slack teams to a DoS on new members.</p>
 
 
         <h2>Background</h2>
@@ -78,10 +77,9 @@
             href="https://get.slack.help/hc/en-us/articles/201330256-Invite-new-members-to-your-team#invitation-limits">does
         not help</a>:</p>
 
-        <blockquote>Please do not revoke invitations in an attempt to lift the
-            limit. Invitation limits are not affected by revoked invitations. They
-        are based solely on the acceptance rate of invitations that have already
-        been sent.</blockquote>
+        <blockquote>Invitation limits are not affected by revoked invitations.
+            They are based solely on the acceptance rate of invitations that
+        have already been sent.</blockquote>
 
 
         <h2>Mitigation</h2>
@@ -92,18 +90,18 @@
         <p>There is an <a href="https://github.com/rauchg/slackin/pull/234">open
             pull request</a> against the main repo (~4,700 stars).</p>
 
-        <p>Slack provides an undocumented &ldquo;shared invite&rdquo; feature
-        whereby a team can <a href="https://slack.com/help/contact">contact
-        support</a> to generate <a
-        href="https://my.slack.com/admin/shared_invites">a link</a> to a page where
-        anyone can join the team. Links expire after 30 days or 1,000 invites. <b>Use
-        shared invites</b> to avoid SlackOut.</p>
-
 
         <h2>Recovery</h2>
 
+        <p>Slack provides an undocumented &ldquo;shared invite&rdquo; feature
+        whereby a team can <a href="https://slack.com/help/contact">contact
+        support</a> to request <a
+        href="https://my.slack.com/admin/shared_invites">a link</a> to a page where
+        anyone can join the team. Links expire after 30 days or 1,000 invites, after
+        which the team must contact support again.</p>
+
         <p>To recover from SlackOut, <b>use shared invites</b> until the team's
-        invite acceptance rate is back above 50%.</p>
+        acceptance rate is back above 50%.</p>
 
 
         <h2>Timeline</h2>
@@ -111,26 +109,27 @@
         <dl>
 
             <dt>2015-01-26</dt>
-            <dd>First commit on rauchg/slackin.</dd>
+            <dd>rauchg launches SlackIn.</dd>
 
-            <dt>2016-09-07 <i>&#x279F; 20 months later</i></dt>
-            <dd>Fork and PR add reCAPTCHA.</dd>
+            <dt>2016-09-07 &#x279F; 20 months later</dt>
+            <dd>avatsaev forks, adds reCAPTCHA, and submits a PR.</dd>
 
-            <dt>2017-05-25 <i>&#x279F; 9 months</i></dt>
-            <dd>whit537 communicates issue to rauchg in private email.</dd>
+            <dt>2017-05-25 &#x279F; 9 months</dt>
+            <dd>whit537 discloses the SlackOut issue to rauchg in private email.</dd>
 
-            <dt>2017-05-25 <i>&#x279F; 2 minutes</i></dt>
+            <dt>2017-05-25 &#x279F; 2 minutes</dt>
             <dd>rauchg responds, &ldquo;I agree with you. There's a PR open to add
             Google captcha. Would you like to help land it?&rdquo;</dd>
 
-            <dt>2017-05-26 <i>&#x279F; 1 day</i></dt>
-            <dd>Slack support provides whit537 with shared invite workaround.</dd>
+            <dt>2017-05-26 &#x279F; 1 day</dt>
+            <dd>Slack support provides whit537 with the shared invite workaround.</dd>
 
             <dt>2017-05-26</dt>
-            <dd>whit537 shows rauchg this webpage and agrees to help with the PR.</dd>
+            <dd>whit537 shows rauchg this webpage and agrees to help land the PR.</dd>
 
-            <dt>2017-05-?? <i>&#x279F; n days</i></dt>
-            <dd>PR merged and page published to raise awareness.</dd>
+            <dt>2017-05-?? &#x279F; n days</dt>
+            <dd>rauchg merges the PR and whit537 publishes this page.
+            <b>Please upgrade and spread the word!</b></dd>
 
         </dl>
 
