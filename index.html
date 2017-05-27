@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>SlackOut - SlackIn exposes Slack teams to a DoS on new members.</title>
+        <title>SlackOut - SlackIn exposed Slack teams to a DoS on new members.</title>
         <style>
             body {
                 background: black;
@@ -37,7 +37,7 @@
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="og:url" content="https://slackout.github.io/" />
         <meta name="og:title" content="SlackOut" />
-        <meta name="og:description" content="SlackIn exposes Slack teams to a DoS on new members." />
+        <meta name="og:description" content="SlackIn exposed Slack teams to a DoS on new members." />
         <meta name="og:image" content="https://slackout.github.io/slackout.png" />
     </head>
     <body>
@@ -46,7 +46,7 @@
 
         <h2>Summary</h2>
 
-        <p>SlackIn exposes Slack teams to a DoS on new members.</p>
+        <p>SlackIn exposed Slack teams to a DoS on new members.</p>
 
 
         <h2>Background</h2>
@@ -67,11 +67,12 @@
         <p>To prevent abuse, Slack disables new invites if less than 50% of all
         previous invites are accepted.</p>
 
-        <p>With SlackIn as of <a
-            href="https://github.com/rauchg/slackin/commits/3ff77b9d6fc72508941fd4bd5a1e49eb4f2a650c">3ff77b9d</a>,
-        it is trivial to <b>flood a Slack team with garbage invites</b> that
-        will never be accepted, effectively preventing new members from joining
-        the team.</p>
+        <p>With SlackIn prior to <a
+            href="https://github.com/rauchg/slackin/commits/a7467a511a5dfa1849b28e13b7ff04f84d339b99">a7467a51</a>
+        (PR <a href="https://github.com/rauchg/slackin/pull/311">#311</a>), it
+        was trivial to <b>flood a Slack team with garbage invites</b> that
+        would never be accepted, effectively preventing new members from
+        joining the team.</p>
 
         <p>Revoking invites <a
             href="https://get.slack.help/hc/en-us/articles/201330256-Invite-new-members-to-your-team#invitation-limits">does
@@ -84,11 +85,11 @@
 
         <h2>Mitigation</h2>
 
-        <p>There is <a href="https://github.com/avatsaev/slackin">a fork</a> (1
-        star) that adds reCAPTCHA. <b>Use the fork</b> to avoid SlackOut.</p>
+        <p>Version <a
+            href="https://github.com/rauchg/slackin/releases/tag/0.14.0">0.14.0</a>
+        of SlackIn adds Google reCAPTCHA to prevent abuse.</p>
 
-        <p>There is an <a href="https://github.com/rauchg/slackin/pull/234">open
-            pull request</a> against the main repo (~4,700 stars).</p>
+        <p><b>Upgrade SlackIn</b> to avoid SlackOut.</p>
 
 
         <h2>Recovery</h2>
@@ -128,10 +129,12 @@
             <dd>whit537 shows rauchg this webpage and agrees to help land the PR.</dd>
 
             <dt>2017-05-?? &#x279F; n days</dt>
-            <dd>rauchg merges the PR and whit537 publishes this page.
-            <b>Please upgrade and spread the word!</b></dd>
+            <dd>rauchg releases version 0.14.0, and whit537 publishes this
+            page.</dd>
 
         </dl>
+
+        <p><b>Please upgrade and spread the word!</b></p>
 
     </body>
 </html>
